@@ -43,8 +43,9 @@ class UserLoginView(APIView):
             if user_obj is not None:
                 token = get_tokens_for_user(user_obj)
                 return Response({"token":token , "msg":"Login Successfull"}, status=status.HTTP_200_OK)
-        
-        return Response({"errors":{"non_field_errors":["Email or Password is Wrong"]}}, status=status.HTTP_404_NOT_FOUND)
+            else:
+                return Response({"errors":{"non_field_errors":["Email or Password is Wrong"]}}, status=status.HTTP_404_NOT_FOUND)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
 

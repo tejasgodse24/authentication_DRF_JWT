@@ -140,10 +140,11 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "http://localhost:3000",
 ]
 
-PASSWORD_RESET_TIMEOUT = 60  #15 MIN
+PASSWORD_RESET_TIMEOUT = 900  #15 MIN
 
 
 SIMPLE_JWT = {

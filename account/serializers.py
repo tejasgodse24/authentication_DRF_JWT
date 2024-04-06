@@ -69,9 +69,11 @@ class SendPasswordResetViewSerializer(serializers.Serializer):
             print(uid)
             token = PasswordResetTokenGenerator().make_token(user_obj[0])
             print(token)
-            link = "http://localhost:8000/api/user/reset-password/"+uid+"/"+token
+            # link = "http://localhost:8000/api/user/reset-password/"+uid+"/"+token     #link for drf only
+            link = "http://localhost:5173/api/user/reset-password/"+uid+"/"+token       #link for reactjs ui
+
             print(link)
-            # send email
+            # send email 
             data = {
                 "subject":"Reset Password Link",
                 "body" : f"Click following link to reset password {link}",
